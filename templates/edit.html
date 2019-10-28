@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Sign up</h2>
+
+<form method="post" action="/verify">
+  <table>
+      <tbody><tr>
+          <td><label for="username">Username</label></td>
+          <td>
+              <input name="username" value="" type="text"  required=True></input>
+              <span class="error"></span>
+          </td>
+      </tr>
+      <tr>
+          <td><label for="password">Password</label></td>
+          <td>
+              <input name="password" type="password"  required=True></input>
+              <span class="error"></span>
+          </td>
+      </tr>
+      <tr>
+          <td><label for="verify">Verify Password</label></td>
+          <td>
+              <input name="verify" type="password" equals= "password" required=True></input>
+              <span class="error"></span>
+          </td>
+      </tr>
+      <tr>
+          <td><label for="email" required=False>Email (optional)</label></td>
+          <td>
+              <input name="email" value="">
+              <span class="error"></span>
+          </td>
+      </tr>
+  </tbody></table>
+  <input type="submit" value="sign up">
+</form>
+
+
+{% if error != "" %}
+  <p class='error'>{{ error }}</p>
+{% endif %}
+{% endblock %}
